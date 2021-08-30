@@ -4,6 +4,8 @@
 - Seção 01 - Introdução e Apresentação do Curso
 - Seção 02 - Infraestrutura e Instalações
 - Seção 03 - Caso de Estudo - Primeiro Dashboard
+- Seção 04 - Visão Empresarial e Categorias de Dados
+- Seção 05 - Power Query e Tratamento de Dados com Linguagem M
 
 
 Link para o curso: [Udemy](https://www.udemy.com/course/curso-completo-master-power-bi/)
