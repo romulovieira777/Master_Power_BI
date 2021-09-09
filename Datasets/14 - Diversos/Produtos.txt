@@ -1,0 +1,6 @@
+cod,produto
+1,cadeira
+2,geladeira
+3,fogão
+4,mesa
+5,TV

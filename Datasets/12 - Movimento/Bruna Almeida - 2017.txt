@@ -1,0 +1,4 @@
+Produto,Valor
+Conta-Corrente, 221458.36
+Poupança, 958742.36
+Produtos, 224158.36
