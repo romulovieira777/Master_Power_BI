@@ -1,46 +1,72 @@
-------------------------------------------------
+------------------------------------------------------------------
 -- DIFERENÇA ENTRE FATOS E DIMENSOES
-------------------------------------------------
+------------------------------------------------------------------
 
-USE AdventureWorksDW2017
+USE
+	AdventureWorksDW2017
 GO
 
-SELECT * FROM DimCustomer
+SELECT
+	* 
+FROM
+	DimCustomer
 GO
 
-SELECT * FROM DimCurrency
+SELECT
+	*
+FROM
+	DimCurrency
 GO
 
-SELECT * FROM FactInternetSales
+SELECT 
+	*
+FROM
+	FactInternetSales
 GO
 
-SELECT FIRSTNAME, LASTNAME, YEARLYINCOME, CURRENCYNAME, ORDERQUANTITY, SALESAMOUNT
-FROM DimCustomer DC
-INNER JOIN FactInternetSales FS
-ON DC.CustomerKey = FS.CustomerKey
-INNER JOIN DimCurrency DIC
-ON DIC.CurrencyKey = FS.CurrencyKey
-ORDER BY FIRSTNAME, LASTNAME
+SELECT 
+	FIRSTNAME
+  , LASTNAME
+  , YEARLYINCOME
+  , CURRENCYNAME
+  , ORDERQUANTITY
+  , SALESAMOUNT
+FROM 
+	DimCustomer DC
+INNER JOIN 
+	FactInternetSales FS
+ON 
+	DC.CustomerKey = FS.CustomerKey
+INNER JOIN 
+	DimCurrency DIC
+ON 
+	DIC.CurrencyKey = FS.CurrencyKey
+ORDER BY 
+	FIRSTNAME, LASTNAME
 GO
 
--------------------------------------------------------------
+------------------------------------------------------------------
 --- JOINS E RELACIONAMENTOS
--------------------------------------------------------------
+------------------------------------------------------------------
 
-CREATE DATABASE CLINICA
+CREATE DATABASE 
+	CLINICA
 GO
 
-USE CLINICA
+USE 
+	CLINICA
 GO
 
-CREATE TABLE PACIENTE(
+CREATE TABLE PACIENTE
+(
 	IDPACIENTE INT PRIMARY KEY,
 	NOME VARCHAR(30),
 	SEXO CHAR(1)
 )
 GO
 
-CREATE TABLE ENDERECO(
+CREATE TABLE ENDERECO
+(
 	IDENDERECO INT PRIMARY KEY,
 	RUA VARCHAR(30),
 	BAIRRO VARCHAR(30),
@@ -54,7 +80,8 @@ FOREIGN KEY(ID_PACIENTE)
 REFERENCES PACIENTE(IDPACIENTE)
 GO
 
-CREATE TABLE TELEFONE(
+CREATE TABLE TELEFONE
+(
 	IDTELEFONE INT PRIMARY KEY,
 	TIPO CHAR(3),
 	NUMERO CHAR(6),
@@ -92,13 +119,21 @@ GO
 ------------------------------------------------------------------
 
 ------------------------------------------------------------------
------------  JUNÇAO INTERNA
+---------- JUNÇAO INTERNA
 ------------------------------------------------------------------
 
-SELECT NOME, SEXO, RUA, BAIRRO, CIDADE
-FROM PACIENTE
-INNER JOIN ENDERECO
-ON IDPACIENTE = ID_PACIENTE
+SELECT 
+	NOME
+  , SEXO
+  , RUA
+  , BAIRRO
+  , CIDADE
+FROM 
+	PACIENTE
+INNER JOIN 
+	ENDERECO
+ON 
+	IDPACIENTE = ID_PACIENTE
 GO
 
 ------------------------------------------------------------------
@@ -109,23 +144,38 @@ GO
 -----------  JUNÇAO ESQUERDA
 ------------------------------------------------------------------
 
-SELECT NOME, SEXO, TIPO, NUMERO
-FROM PACIENTE
-INNER JOIN TELEFONE
-ON IDPACIENTE = ID_PACIENTE
+SELECT 
+	NOME
+  , SEXO
+  , TIPO
+  , NUMERO
+FROM 
+	PACIENTE
+INNER JOIN 
+	TELEFONE
+ON 
+	IDPACIENTE = ID_PACIENTE
 GO
 
-SELECT NOME, SEXO, TIPO, NUMERO
-FROM PACIENTE
-LEFT JOIN TELEFONE
-ON IDPACIENTE = ID_PACIENTE
+SELECT 
+	NOME
+  , SEXO
+  , TIPO
+  , NUMERO
+FROM 
+	[CLINICA].[DBO].[PACIENTE]
+LEFT JOIN 
+	[CLINICA].[DBO].[TELEFONE]
+ON 
+	IDPACIENTE = ID_PACIENTE
 GO
 
 ------------------------------------------------------------------
 -----------  RELACIONAMENTOS M X N MUITOS PARA MUITOS
 ------------------------------------------------------------------
 
-CREATE TABLE MEDICO(
+CREATE TABLE MEDICO
+(
 	IDMEDICO INT PRIMARY KEY,
 	NOME VARCHAR(30),
 	ESPECIALIDADE VARCHAR(30)
@@ -138,7 +188,8 @@ INSERT INTO MEDICO VALUES(3,'BRUNA','NEFROLOGIA')
 INSERT INTO MEDICO VALUES(4,'ANDRE','CLINICO GERAL')
 GO
 
-CREATE TABLE CONSULTA(
+CREATE TABLE CONSULTA
+(
 	IDCONSULTA INT PRIMARY KEY IDENTITY,
 	ID_PACIENTE INT,
 	ID_MEDICO INT,
@@ -209,9 +260,9 @@ SELECT P.NOME AS PACIENTE,
 	   ON M.IDMEDICO = C.ID_MEDICO
 	   GO
 
--------------------------------------------------------
+------------------------------------------------------------------
 --- APENAS QUEM NAO TEVE ATENDIMENTO
--------------------------------------------------------
+------------------------------------------------------------------
 
 
 SELECT P.NOME AS PACIENTE,
@@ -226,9 +277,9 @@ SELECT P.NOME AS PACIENTE,
 	   WHERE IDMEDICO IS NULL
 	   GO
 
--------------------------------------------------------
+------------------------------------------------------------------
 --- MEDICOS QUE NAO ATENDERAM
--------------------------------------------------------
+------------------------------------------------------------------
 
 
 SELECT P.NOME AS PACIENTE,
