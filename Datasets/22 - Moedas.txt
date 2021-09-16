@@ -1,0 +1,3 @@
+Cliente	$Americano	Americano	R$Brasileiro	Brasileiro	Pontos	Vírgulas
+A	$1,100.01	1,100.01	R$1.100,01	1.100,01	1.100.01	1,100,01
+A	$1,100.01	1,100.01	R$1.100,01	1.100,01	1.100.01	1,100,01
