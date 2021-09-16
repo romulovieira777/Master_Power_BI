@@ -1,0 +1,23 @@
+let
+
+    /* Trabalhando nas variaveis */
+
+
+
+    DataMinima = List.Min( NomeColunaData ),
+
+    DataMaxima = List.Max( NomeColunaData ),
+
+    AnoMinimo = Date.Year( DataMinima ),
+
+    AnoMaximo = Date.Year( DataMaxima ),
+
+    DataInicial = #date(AnoMinimo, 1, 1),
+
+    DataFinal = #date(AnoMaximo, 12, 31),
+
+    Duracao = Duration.Days( DataFinal - DataInicial ) + 1,
+
+    /* Criando a Dimensao */
+
+    Fonte = List.Dates(DataInicial, Duracao, #duration(1, 0, 0, 0)),
