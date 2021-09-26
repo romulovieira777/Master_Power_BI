@@ -1,0 +1,7 @@
+D:\WorkSpace\Projects Analysis Services\DemoBI\DemoBI\bin\Model.asdatabase
+D:\WorkSpace\Projects Analysis Services\DemoBI\DemoBI\bin\Model.deploymenttargets
+D:\WorkSpace\Projects Analysis Services\DemoBI\DemoBI\bin\Model.deploymentoptions
+D:\WorkSpace\Projects Analysis Services\DemoBI\DemoBI\obj\Development\DemoBI.smproj.CoreCompileInputs.cache
+D:\WorkSpace\Projects Analysis Services\DemoBI\DemoBI\obj\Development\Model.asdatabase
+D:\WorkSpace\Projects Analysis Services\DemoBI\DemoBI\obj\Development\Model.deploymentoptions
+D:\WorkSpace\Projects Analysis Services\DemoBI\DemoBI\obj\Development\Model.deploymenttargets
